@@ -6,6 +6,12 @@ export default defineConfig({
   server: {
     open: true,
   },
+  base: './',
   root: './src',
-  plugins: [react()]
+  publicDir: '../public',
+  plugins: [react()],
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+  }
 })
