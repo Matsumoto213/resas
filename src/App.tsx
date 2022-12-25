@@ -5,7 +5,6 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header style={{ textAlign: "center" }}>
-        {/* <h2>APP TITLE: {import.meta.env.VITE_API_KEY}</h2> */}
         <h1>都道府県別人口推移</h1>
       </header>
       <Main />

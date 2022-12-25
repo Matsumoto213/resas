@@ -11,13 +11,14 @@ const Styles: { [key: string]: React.CSSProperties } = {
     label: {
         fontSize: "20px",
         padding: "0.5rem 2rem",
-        borderLeft: "4px solid #000",
+        borderLeft: "4px solid white",
         marginLeft: "10pt",
     },
 }
 
 const Main: React.FC = () => {
-    console.log(import.meta.env.VITE_API_KEY);
+    console.log(import.meta.env.BASE_URL)
+    console.log(import.meta.env.VITE_API_KEY)
     const [prefectures, setPreFectures] = useState<{
         message: null;
         result: {

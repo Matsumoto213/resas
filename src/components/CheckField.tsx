@@ -17,11 +17,11 @@ const Styles: { [key: string]: React.CSSProperties } = {
     justifyContent: "flex-start",
     justifySelf: "auto",
   },
-  text: { display: "contents", marginLeft: "1em", cursor: "pointer" },
+  text: { display: "contents", cursor: "pointer" },
   checkcard: {
     borderRadius: "24px",
     border: "solid 2px",
-    textAlign: "center",
+    textAlign: "left",
     padding: "4px",
     margin: "0.5rem",
   },
