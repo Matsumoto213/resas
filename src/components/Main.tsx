@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CheckField from "./CheckField";
 import Graph from "./Graph";
-
 import axios from "axios";
+
+const key = import.meta.env.VITE_API_KEY
+console.log(import.meta.env)
+console.log(key)
 
 const Styles: { [key: string]: React.CSSProperties } = {
     graph: {
@@ -17,8 +20,6 @@ const Styles: { [key: string]: React.CSSProperties } = {
 }
 
 const Main: React.FC = () => {
-    console.log(import.meta.env.BASE_URL)
-    console.log(import.meta.env.VITE_API_KEY)
     const [prefectures, setPreFectures] = useState<{
         message: null;
         result: {
@@ -30,11 +31,10 @@ const Main: React.FC = () => {
     { prefName: string; data: { year: number; value: number }[] }[]>([]);
     useEffect(() => {
         axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", {
-            headers: {"X-API-KEY": import.meta.env.VITE_API_KEY },
+            headers: {"X-API-KEY": import.meta.env.VITE_APIKEY },
         })
         .then((results) => {
             setPreFectures(results.data);
-            console.log(results.data);
           })
           .catch((error) => {});
     }, []);
@@ -49,7 +49,7 @@ const Main: React.FC = () => {
             if (c_prefPopulation.findIndex((value) => value.prefName === prefName) !== -1) return;
             axios.get("https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" + String(prefCode),
             {
-                headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
+                headers: { "X-API-KEY": import.meta.env.VITE_APIKEY },
             }
             )
             .then((results) => {
