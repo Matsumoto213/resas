@@ -3,10 +3,6 @@ import CheckField from "./CheckField";
 import Graph from "./Graph";
 import axios from "axios";
 
-const key = import.meta.env.VITE_API_KEY
-console.log(import.meta.env)
-console.log(key)
-
 const Styles: { [key: string]: React.CSSProperties } = {
     graph: {
         padding: "10px",
@@ -31,7 +27,7 @@ const Main: React.FC = () => {
     { prefName: string; data: { year: number; value: number }[] }[]>([]);
     useEffect(() => {
         axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", {
-            headers: {"X-API-KEY": import.meta.env.VITE_APIKEY },
+            headers: {"X-API-KEY": import.meta.env.VITE_API_KEY },
         })
         .then((results) => {
             setPreFectures(results.data);
@@ -49,7 +45,7 @@ const Main: React.FC = () => {
             if (c_prefPopulation.findIndex((value) => value.prefName === prefName) !== -1) return;
             axios.get("https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" + String(prefCode),
             {
-                headers: { "X-API-KEY": import.meta.env.VITE_APIKEY },
+                headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
             }
             )
             .then((results) => {
